@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   devise_for :companies
-  devise_for :backers
+  devise_for :backers, controllers: {
+    sessions: 'backers/sessions'
+  }
 
   resources :fundraisers
+  resources :bids
   root to: 'fundraisers#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -10,7 +10,7 @@ class FundraisersController < ApplicationController
       redirect_to fundraiser_path(fundraiser)
     else
       render :error
-    end  
+    end 
   end  
   
   def index
@@ -18,6 +18,7 @@ class FundraisersController < ApplicationController
   end
 
   def show
+    @bid = Bid.new
     @fundraiser = Fundraiser.find(params[:id])
   end  
 

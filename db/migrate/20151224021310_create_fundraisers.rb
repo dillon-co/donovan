@@ -6,6 +6,7 @@ class CreateFundraisers < ActiveRecord::Migration
       t.integer :goal
       t.integer :equity_given_away
       t.integer :money_raised
+      t.integer :number_of_bids
       t.integer :days_left
       t.integer :number_of_backers
 

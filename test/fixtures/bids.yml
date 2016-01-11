@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  backer_id: 1
+  fundraiser_id: 1
+  money_backed: 1
+
+two:
+  backer_id: 1
+  fundraiser_id: 1
+  money_backed: 1
