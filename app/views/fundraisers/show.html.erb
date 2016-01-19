@@ -22,15 +22,7 @@
 <h2><%= @fundraiser.title %></h2>
 <p><%= @fundraiser.description %></p>
 <h5>We need <%= @fundraiser.goal %> and we're at  0 </h5>
-<% if backer_signed_in? %>
-  <%= form_for @bid do |f| %>
-    <%= f.label "Your Bid" %>
-    <%= f.text_field :money_backed %>
-    <%= f.submit 'Back This Company!', class: "button expand" %>
-  <% end %>
-<% else %>
-  <%= link_to "Sign in to back this project!", new_backer_session_path, class: 'button expand' %>  
-<% end %>  
+<%= render '/bids/new_bid' %>
 <!-- <select>
 <option value="husker">Small</option>
 <option value="starbuck">Medium</option>

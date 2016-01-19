@@ -1,0 +1,9 @@
+<% if backer_signed_in? %>
+  <%= form_for @bid do |f| %>
+    <%= f.label "Your Bid" %>
+    <%= f.text_field :money_backed %>
+    <%= f.submit 'Back This Company!', class: "button expand" %>
+  <% end %>
+<% else %>
+  <%= link_to "Sign in to back this project!", new_backer_session_path, class: 'button expand' %>  
+<% end %>  
