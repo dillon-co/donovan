@@ -17,7 +17,7 @@ class BidsController < ApplicationController
   end  
 
   def create
-    bid = Bid.new(bid_params)
+    bid = Fundraiser.find(params[:fundraiser_id]).bids.new(bid_params)
     if bid.save 
       redirect_to :back
     else

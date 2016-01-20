@@ -72,12 +72,12 @@ ActiveRecord::Schema.define(version: 20160111015643) do
     t.text     "description"
     t.integer  "goal"
     t.integer  "equity_given_away"
-    t.integer  "money_raised"
+    t.integer  "money_raised",      default: 0, null: false
     t.integer  "number_of_bids"
     t.integer  "days_left"
     t.integer  "number_of_backers"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
 end

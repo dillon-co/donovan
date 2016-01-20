@@ -21,8 +21,16 @@
 <div class="medium-6 large-5 columns">
 <h2><%= @fundraiser.title %></h2>
 <p><%= @fundraiser.description %></p>
-<h5>We need <%= @fundraiser.goal %> and we're at  0 </h5>
-<%= render '/bids/new_bid' %>
+<h5>We need <%= @fundraiser.goal %> and we're at  <%= @fundraiser.money_raised %> </h5>
+<% if backer_signed_in? %>
+  <%= form_for [@fundraiser, @bid] do |f| %>
+    <%= f.label "Your Bid" %>
+    <%= f.number_field :money_backed %>
+    <%= f.submit 'Back This Company!', class: "button expand" %>
+  <% end %>
+<% else %>
+  <%= link_to "Sign in to back this project!", new_backer_session_path, class: 'button expand' %>  
+<% end %>  
 <!-- <select>
 <option value="husker">Small</option>
 <option value="starbuck">Medium</option>

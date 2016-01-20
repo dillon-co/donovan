@@ -5,7 +5,7 @@ class CreateFundraisers < ActiveRecord::Migration
       t.text :description
       t.integer :goal
       t.integer :equity_given_away
-      t.integer :money_raised
+      t.integer :money_raised, default: 0, null: false
       t.integer :number_of_bids
       t.integer :days_left
       t.integer :number_of_backers
