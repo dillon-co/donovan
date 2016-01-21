@@ -1,10 +1,6 @@
 class FundraisersController < ApplicationController
-  before_action :set_money_raised
+  before_action :set_money_raised, only: [:show, :update]
  
-  def set_money_raised
-    Fundraiser.find(params[:id]).set_money_raised if params[:id].present?
-  end  
-
   def new
     @fundraiser = Fundraiser.new
   end
@@ -14,7 +10,7 @@ class FundraisersController < ApplicationController
     if fundraiser.save 
       redirect_to fundraiser_path(fundraiser)
     else  
-      render :error
+      render :new
     end 
   end  
   
@@ -40,4 +36,9 @@ class FundraisersController < ApplicationController
   def fundraiser_params
     params.require(:fundraiser).permit(:title, :description, :goal, :money_raised, :days_left, :number_of_backers, :bids)
   end  
+  
+  def set_money_raised
+    Fundraiser.find(params[:id]).set_money_raised if params[:id].present?
+  end
+
 end

@@ -5,8 +5,9 @@ class Fundraiser < ActiveRecord::Base
   
   
   def set_money_raised
-    if bids.count > 0
-      money_raised = bids.pluck(:money_backed).inject(&:+)
+    if self.bids.present?
+      self.money_raised = self.bids.pluck(:money_backed).inject(&:+)
+      self.save
     end  
   end  
 end
