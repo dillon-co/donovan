@@ -4,10 +4,11 @@ class Fundraiser < ActiveRecord::Base
   has_many :bids
   
   
-  def set_money_raised
-    if self.bids.present?
-      self.money_raised = self.bids.pluck(:money_backed).inject(&:+)
-      self.save
-    end  
+  # def set_money_raised
+  #   update(money_raised: bids.sum(:money_backed))
+  # end
+
+  def money_raised
+    bids.sum(:money_backed)
   end  
 end
