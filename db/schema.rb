@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 20160111015643) do
   create_table "fundraisers", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "goal"
-    t.integer  "equity_given_away"
+    t.integer  "goal",                          null: false
+    t.integer  "equity_given_away",             null: false
     t.integer  "money_raised",      default: 0, null: false
     t.integer  "number_of_bids"
     t.integer  "days_left"

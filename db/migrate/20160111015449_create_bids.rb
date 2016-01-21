@@ -4,7 +4,6 @@ class CreateBids < ActiveRecord::Migration
       t.integer :backer_id
       t.integer :fundraiser_id
       t.integer :money_backed
-
       t.timestamps null: false
     end
   end

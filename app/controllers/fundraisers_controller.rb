@@ -33,7 +33,7 @@ class FundraisersController < ApplicationController
   private
 
   def fundraiser_params
-    params.require(:fundraiser).permit(:title, :description, :goal, :money_raised, :days_left, :number_of_backers, :bids)
+    params.require(:fundraiser).permit(:title, :description, :goal, :equity_given_away, :money_raised, :days_left, :number_of_backers, :bids)
   end   
 
 end

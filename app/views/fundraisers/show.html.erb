@@ -19,7 +19,7 @@
   <div class="medium-6 large-5 columns">
     <h2><%= @fundraiser.title %></h2>
     <p><%= @fundraiser.description %></p>
-    <h5>We need <%= @fundraiser.goal %> and we're at  <%= @fundraiser.money_raised %> </h5>
+    <h5>We're giving away <%= @fundraiser.equity_given_away %>% for <%= number_to_currency(@fundraiser.goal) %> and we've raised  <%= number_to_currency(@fundraiser.money_raised) %> </h5>
     <% if backer_signed_in? %>
       <%= form_for [@fundraiser, @bid] do |f| %>
         <%= f.label "Your Bid" %>
