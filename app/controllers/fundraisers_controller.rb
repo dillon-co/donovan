@@ -1,5 +1,6 @@
 class FundraisersController < ApplicationController
- 
+  before_filter :authenticate_backer!
+
   def new
     @fundraiser = Fundraiser.new
   end
@@ -20,6 +21,11 @@ class FundraisersController < ApplicationController
   def show
     @fundraiser = Fundraiser.find(params[:id])
     @bid = @fundraiser.bids.new
+    @backer = current_backer
+    @bids = current_backer.bids.all
+    @bid_count = @bids.count
+    @total_cash_given = current_backer.total_cash_given_to_current_company(:fundraiser_id)
+    @total_equity_owned = current_backer.total_equity_owned_of_current_company(:fundraiser_id)
   end  
 
   def edit

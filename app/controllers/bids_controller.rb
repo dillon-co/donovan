@@ -18,6 +18,7 @@ class BidsController < ApplicationController
 
   def create
     bid = Fundraiser.find(params[:fundraiser_id]).bids.new(bid_params)
+    bid.backer_id = current_backer.id
     if bid.save 
       redirect_to :back
     else
@@ -28,6 +29,6 @@ class BidsController < ApplicationController
   private
 
   def bid_params
-    params.require(:bid).permit(:money_backed)
+    params.require(:bid).permit(:money_backed, :backer_id)
   end
 end

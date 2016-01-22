@@ -14,9 +14,14 @@
       <div class="column">
         <img class="thumbnail">
       </div>
+      <div class="small secondary expand button group">
+      <a class="button small">Facebook</a>
+      <a class="button small">Twitter</a>
+      <a class="button small">Linkedin</a>
+    </div>
     </div>
   </div>
-  <div class="medium-6 large-5 columns">
+  <div class="medium-6  columns">
     <h2><%= @fundraiser.title %></h2>
     <p><%= @fundraiser.description %></p>
     <h5>We're giving away <%= @fundraiser.equity_given_away %>% for <%= number_to_currency(@fundraiser.goal) %> and we've raised  <%= number_to_currency(@fundraiser.money_raised) %> </h5>
@@ -30,13 +35,38 @@
       <%= link_to "Sign in to back this project!", new_backer_session_path, class: 'button expand' %>  
     <% end %>  
 
-    <div class="small secondary expand button-group">
-      <a class="button small">Facebook</a>
-      <a class="button small">Twitter</a>
-      <a class="button small">Yo</a>
-    </div>
-  </div>
-</div>
-<div class="column row">
+  <% if backer_signed_in? %>
+  <table summary="Your current bids for this fundraiser">
+      <thead>
+      <tr class="table-title">
+        <h4>Your Bids</h4>
+      </tr>  
+      <tr>
+        <th>Date Backed</th>
+        <th>$$</th>
+        <th>%</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bids.each do |bid| %>
+        <tr>
+          <td><%= bid.created_at.strftime('%a, %d %b %Y') %></td>
+          <td><%= number_to_currency(bid.money_backed) %></td>
+          <td><%= number_to_percentage(bid.equity_owned) %></td>  
+        </tr>  
+      <% end %>
+    </tbody>
+    <tfoot>
 
+      <td>Total:</td>
+      <td><%= number_to_currency(@total_cash_given) %></td>
+      <td><%= number_to_percentage(@total_equity_owned) %>%</td>  
+    </tfoot>
+  </table>  
+  <% end %>  
+  </div>
+
+</div>
+<div class="medium-6 large-5 columns row">
+    
 </div>

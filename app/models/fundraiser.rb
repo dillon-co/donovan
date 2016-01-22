@@ -1,8 +1,8 @@
 class Fundraiser < ActiveRecord::Base
   belongs_to :company
-  has_and_belongs_to_many :backers
-  has_many :bids
   
+  has_many :bids
+  has_many :backers, :through => :bids 
   
   # def set_money_raised
   #   update(money_raised: bids.sum(:money_backed))
@@ -10,5 +10,9 @@ class Fundraiser < ActiveRecord::Base
 
   def money_raised
     bids.sum(:money_backed)
+  end  
+
+  def number_of_bids
+    bids.count
   end  
 end
