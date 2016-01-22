@@ -1,0 +1,5 @@
+<%= @bids.each do |bid| %>
+  <h3>on <%= bid.created_at %> you backed <%= bid.money_backed %>
+<% end %>
+<h2>For a Grand Total of <%= @total_equity_given %></h2>
+<h2>You are currently sitting on <%= @total_equity_owned %>% of the company</h2>
