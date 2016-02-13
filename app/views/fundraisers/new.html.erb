@@ -1,13 +1,17 @@
 <div class="row">
-  <%= form_for @fundraiser do |f| %>
+  <%= form_for Fundraiser.new, html: {multipart: true} do |f| %>
     <%= f.label :title %><br>
     <%= f.text_field :title %><br>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %><br>
+    <%= f.label "Short Description" %><br>
+    <%= f.text_field :description %><br>
     <%= f.label "How much do you need?" %><br>
     <%= f.text_field :goal %><br>
     <%= f.label "What percent are you willing to part with?(max is 10)" %><br>
     <%= f.number_field(:equity_given_away, in: 1..10) %><br>
+   <div class="panel">
+    <%= f.label "Add a video describing your company" %>
+    <%= f.file_field :video %>
+   </div> 
     <%= f.submit class: 'button' %>
   <% end %>`
 </div>  

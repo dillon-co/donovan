@@ -6,11 +6,13 @@ Rails.application.routes.draw do
     sessions: 'backers/sessions'
   }
 
+  get '/', to: 'fundraisers#home'
+
   resources :fundraisers do 
     resources :bids
   end  
   
-  root to: 'fundraisers#new'
+  root to: 'fundraisers#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

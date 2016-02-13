@@ -1,69 +1,47 @@
+    <div class="title">
+      <h2><%= @fundraiser.title %></h2>
+      <h5> </h5>
+    </div>  
+    <br>
 <div class="row">
-  <div class="medium-6 columns">
-    <img class="thumbnail" src="http://placehold.it/650x350">
+  <div class="medium-7 columns">
+    <img class="thumbnail" src="http://placehold.it/700x400">
+     <!-- video_tag @fundraiser.video.url -->
     <div class="row small-up-4">
       <div class="column">
         <img class="thumbnail">
       </div>
       <div class="column">
+        <!-- <img class="thumbnail"> -->
+      </div>
+      <!-- <div class="column">
         <img class="thumbnail">
       </div>
       <div class="column">
         <img class="thumbnail">
-      </div>
-      <div class="column">
-        <img class="thumbnail">
-      </div>
-      <div class="small secondary expand button group">
-      <a class="button small">Facebook</a>
-      <a class="button small">Twitter</a>
-      <a class="button small">Linkedin</a>
+      </div> -->
     </div>
-    </div>
-  </div>
-  <div class="medium-6  columns">
-    <h2><%= @fundraiser.title %></h2>
-    <p><%= @fundraiser.description %></p>
-    <h5>We're giving away <%= @fundraiser.equity_given_away %>% for <%= number_to_currency(@fundraiser.goal) %> and we've raised  <%= number_to_currency(@fundraiser.money_raised) %> </h5>
-    <% if backer_signed_in? %>
+   <% if backer_signed_in? %>
       <%= form_for [@fundraiser, @bid] do |f| %>
-        <%= f.label "Your Bid" %>
+        <h5> Your Bid</h5>
         <%= f.number_field :money_backed %>
         <%= f.submit 'Back This Company!', class: "button expand" %>
-      <% end %>
+      <% end %>  
     <% else %>
-      <%= link_to "Sign in to back this project!", new_backer_session_path, class: 'button expand' %>  
-    <% end %>  
-
-  <% if backer_signed_in? %>
-  <table summary="Your current bids for this fundraiser">
-      <thead>
-      <tr class="table-title">
-        <h4>Your Bids</h4>
-      </tr>  
-      <tr>
-        <th>Date Backed</th>
-        <th>$$</th>
-        <th>%</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @bids.each do |bid| %>
-        <tr>
-          <td><%= bid.created_at.strftime('%a, %d %b %Y') %></td>
-          <td><%= number_to_currency(bid.money_backed) %></td>
-          <td><%= number_to_percentage(bid.equity_owned) %></td>  
-        </tr>  
-      <% end %>
-    </tbody>
-    <tfoot>
-
-      <td>Total:</td>
-      <td><%= number_to_currency(@total_cash_given) %></td>
-      <td><%= number_to_percentage(@total_equity_owned) %>%</td>  
-    </tfoot>
-  </table>  
-  <% end %>  
+        <%= link_to "Sign in to back this project!", new_backer_session_path, class: 'button expand' %>  
+    <% end %>
+  </div>
+  <div class="medium-5 large-5 columns description-and-title">
+      <p><%= @fundraiser.description %></p>
+    <h4>Giving Away <%= @fundraiser.equity_given_away %>%</h4 >
+    <h5><%= number_to_currency(@fundraiser.goal) %></h5>
+    <br>
+    <div class="panel">
+    </div>  
+      <div class="funding-status"></div>
+     <% if @fundraiser.money_raised  %> 
+      <h3><%= number_to_currency(@fundraiser.money_raised) %> Raised </h3>
+    <% end %>
   </div>
 
 </div>

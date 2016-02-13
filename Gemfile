@@ -12,8 +12,13 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 
+gem 'sidekiq'
+
 gem 'foundation-rails'
 
+gem "paperclip", "~> 4.3"
+
+gem 'paperclip-av-transcoder'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

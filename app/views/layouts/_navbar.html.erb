@@ -1,0 +1,23 @@
+<div class="top-bar">
+        <div class="top-bar-left nav-title">
+            <div class="small-2 columns">
+              <h3><%= link_to "DONOVAN", root_path, class:"nav-title-text"%></h3>
+            </div>
+           <div class="small-2 columns">
+            <h5><%= link_to "Get Funded", new_company_session_path, class:"nav-title-text" %></h5>
+           </div>
+           <div class="small-2 columns">
+            <% if backer_signed_in? %>
+              <h5><%= link_to "Profile", backer_session_path, class:"nav-title-text" %></h5>
+            <% else  %>
+              <h5><%= link_to "Sign in", backer_session_path, class:"nav-title-text" %></h5>  
+            <% end %>
+           </div> 
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+           <!--  <li><input type="search" placeholder="Search"></li>
+            <li><button type="button" class="button">Search</button></li>
+ -->          </ul>
+        </div>
+      </div>

@@ -1,3 +1,28 @@
 // Place all the styles related to the fundraisers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.row{
+  // text-align: center
+}
+  .title{
+          text-align: center;
+        }
+
+.description-and-title{
+  margin-bottom: 0px;
+}
+
+.empty-status{
+  max-width: 100px;
+  min-height: 150px;
+  margin-bottom: 0px;
+  background-color: white;
+  margin-top: 0px;
+}
+
+.funding-status{
+  background-color: #42A63F;
+  min-height: 100px;
+  max-width: 100px;
+  margin-top: 0px;
+}

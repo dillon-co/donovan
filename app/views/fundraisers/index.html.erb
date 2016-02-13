@@ -1,1 +1,10 @@
-
+<div class="row">
+  <div>
+    <% @fundraisers.each do |fundraiser| %>
+      <div class="large-3 columns">
+        <h2><%= fundraiser.title %></h2>
+        <p><%= link_to 'Show Me', fundraiser_path(fundraiser) %></p>
+      </div> 
+    <% end %>
+  </div>
+</div>  

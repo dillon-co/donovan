@@ -7,11 +7,16 @@ class FundraisersController < ApplicationController
 
   def create
     fundraiser = Fundraiser.new(fundraiser_params)
+    # raise "the roof"
     if fundraiser.save 
       redirect_to fundraiser_path(fundraiser)
     else  
       render :new
     end 
+  end  
+
+  def home
+    @featured_fundraisers = Fundraiser.where(featured: true)
   end  
   
   def index
@@ -39,7 +44,16 @@ class FundraisersController < ApplicationController
   private
 
   def fundraiser_params
-    params.require(:fundraiser).permit(:title, :description, :goal, :equity_given_away, :money_raised, :days_left, :number_of_backers, :bids)
+    params.require(:fundraiser).permit(:title, 
+                                       :description,
+                                       :goal,
+                                       :equity_given_away,
+                                       :money_raised,
+                                       :days_left,
+                                       :number_of_backers,
+                                       :bids,
+                                       :video
+                                       )
   end   
 
 end
