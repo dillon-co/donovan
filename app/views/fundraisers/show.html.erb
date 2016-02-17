@@ -4,14 +4,11 @@
     </div>  
     <br>
 <div class="row">
-  <div class="medium-7 columns">
-    <img class="thumbnail" src="http://placehold.it/700x400">
-     <!-- video_tag @fundraiser.video.url -->
-    <div class="row small-up-4">
-      <div class="column">
-        <img class="thumbnail">
-      </div>
-      <div class="column">
+  <div class="large-7 columns">
+    <!-- <div class="row small-up-4">
+ -->
+      <div class="column embed-container">
+        <%= content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{@youtube_id}") %>
         <!-- <img class="thumbnail"> -->
       </div>
       <!-- <div class="column">
@@ -20,7 +17,7 @@
       <div class="column">
         <img class="thumbnail">
       </div> -->
-    </div>
+    <!-- </div> -->
    <% if backer_signed_in? %>
       <%= form_for [@fundraiser, @bid] do |f| %>
         <h5> Your Bid</h5>
@@ -32,11 +29,11 @@
     <% end %>
   </div>
   <div class="medium-5 large-5 columns description-and-title">
-      <p><%= @fundraiser.description %></p>
+      <p><%= @fundraiser.description.html_safe %></p>
     <h4>Giving Away <%= @fundraiser.equity_given_away %>%</h4 >
     <h5><%= number_to_currency(@fundraiser.goal) %></h5>
     <br>
-    <div class="panel">
+    <div class="panel empty-status">
     </div>  
       <div class="funding-status"></div>
      <% if @fundraiser.money_raised  %> 

@@ -25,6 +25,7 @@ class FundraisersController < ApplicationController
 
   def show
     @fundraiser = Fundraiser.find(params[:id])
+    @youtube_id = @fundraiser.embed(@fundraiser.video_url)
     @bid = @fundraiser.bids.new
     @backer = current_backer
     @bids = current_backer.bids.all
@@ -52,7 +53,7 @@ class FundraisersController < ApplicationController
                                        :days_left,
                                        :number_of_backers,
                                        :bids,
-                                       :video
+                                       :video_url
                                        )
   end   
 

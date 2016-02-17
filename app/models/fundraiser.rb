@@ -24,4 +24,8 @@ class Fundraiser < ActiveRecord::Base
   def number_of_bids
     bids.count
   end  
+
+  def embed(youtube_url)
+    youtube_url.split("=").last
+  end  
 end

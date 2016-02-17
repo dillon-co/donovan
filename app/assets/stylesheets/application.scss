@@ -24,9 +24,14 @@ h1,h2,h3,h4,h5,h6,p,label{
   /*font-weight: 700;*/
 }
 
-a, .button{
+a{
   color:#42A63F;
-  &:hover{color:#A63F77;}
+  &:hover{color:#A63F77}
+}
+
+.button{
+  background-color:#42A63F;
+  &:hover{background-color:#A63F77;}
 }
 .top-bar{
   background-color: white;
@@ -37,7 +42,9 @@ a, .button{
                   font-weight: 700;
                   &:hover{color:#A63F77;}
                 }
+  h3,h5{display: inline;}
   }
+  h5{ border-left: medium solid;}
   /*link{
 
   }*/

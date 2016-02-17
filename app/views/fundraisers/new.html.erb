@@ -9,8 +9,8 @@
     <%= f.label "What percent are you willing to part with?(max is 10)" %><br>
     <%= f.number_field(:equity_given_away, in: 1..10) %><br>
    <div class="panel">
-    <%= f.label "Add a video describing your company" %>
-    <%= f.file_field :video %>
+    <%= f.label "Add a youtube link to the video you wish to use." %>
+    <%= f.text_field :video_url %>
    </div> 
     <%= f.submit class: 'button' %>
   <% end %>`
