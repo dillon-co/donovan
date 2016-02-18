@@ -25,8 +25,7 @@ class FundraisersController < ApplicationController
 
   def show
     @fundraiser = Fundraiser.find(params[:id])
-    @fundraiser.embed(@fundraiser.video_url)
-    @youtube_id = @fundraiser.youtube_id
+    @youtube_id = @fundraiser.embed(@fundraiser.video_url)
     @bid = @fundraiser.bids.new
     @backer = current_backer
     @bids = current_backer.bids.all

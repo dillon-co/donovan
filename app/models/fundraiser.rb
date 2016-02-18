@@ -26,10 +26,6 @@ class Fundraiser < ActiveRecord::Base
   end  
 
   def embed(youtube_url)
-    @youtube_id = youtube_url.split("=").last
-  end
-
-  def youtube_id
-    @youtube_id
+    youtube_url.split("=").last
   end    
 end
