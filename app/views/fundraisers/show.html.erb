@@ -8,8 +8,10 @@
     <!-- <div class="row small-up-4">
  -->
       <div class="column embed-container">
-        <%= content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{@youtube_id}") %>
-        <!-- <img class="thumbnail"> -->
+        <%= content_tag(:iframe, nil, src: "http://www.youtube.com/embed/#{@youtube_id}") %>
+        <!-- <iframe src="http://www.youtube.com/embed/<%= @youtube_id %>"></iframe> -->
+        <%# @youtube_id = 'r5TfgXZV3F0' %>
+        <!-- <iframe src="http://www.youtube.com/embed/<%= @youtube_id %>"></iframe> -->
       </div>
       <!-- <div class="column">
         <img class="thumbnail">
