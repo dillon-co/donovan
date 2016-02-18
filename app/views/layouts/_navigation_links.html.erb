@@ -1,0 +1,6 @@
+<li><%= link_to "Get Funded", new_company_session_path, class:"nav-title-text" %></li>
+<% if backer_signed_in? %>
+  <li> <%= link_to "Profile", backer_session_path, class:"nav-title-text" %></li>
+<% else  %>
+  <li><%= link_to "Sign in", backer_session_path, class:"nav-title-text" %>  </li>
+<% end %>

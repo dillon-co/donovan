@@ -42,12 +42,13 @@ a{
                   font-weight: 700;
                   &:hover{color:#A63F77;}
                 }
-  h3,h5{display: inline;}
+  h3,h5{
+    display: inline;}
   }
-  h5{ border-left: medium solid;}
-  /*link{
-
-  }*/
+  h4{
+    margin-left: 25px;
+    margin-top: 6px;
+  }
 }
 
 h1,h2{
