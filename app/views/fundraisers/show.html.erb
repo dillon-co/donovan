@@ -5,21 +5,10 @@
     <br>
 <div class="row">
   <div class="large-7 columns">
-    <!-- <div class="row small-up-4">
- -->
       <div class="column embed-container">
         <%= content_tag(:iframe, nil, src: "http://www.youtube.com/embed/#{@youtube_id}") %>
-        <!-- <iframe src="http://www.youtube.com/embed/<%= @youtube_id %>"></iframe> -->
-        <%# @youtube_id = 'r5TfgXZV3F0' %>
-        <!-- <iframe src="http://www.youtube.com/embed/<%= @youtube_id %>"></iframe> -->
       </div>
-      <!-- <div class="column">
-        <img class="thumbnail">
-      </div>
-      <div class="column">
-        <img class="thumbnail">
-      </div> -->
-    <!-- </div> -->
+      
    <% if backer_signed_in? %>
       <%= form_for [@fundraiser, @bid] do |f| %>
         <h5> Your Bid</h5>
