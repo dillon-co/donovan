@@ -17,13 +17,23 @@ class BidsController < ApplicationController
   end  
 
   def create
-    bid = Fundraiser.find(params[:fundraiser_id]).bids.new(bid_params)
-    bid.backer_id = current_backer.id
-    if bid.save 
-      redirect_to :back
-    else
-      render :error 
-    end  
+    # this in in cents, so this would be $5
+    @amount = 500
+    backer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :source => params[:stripeToken],
+    )
+    charge = Stripe::Charge.create(
+      :customer    => backer.id,
+      :amount      => @amount, 
+      :description => "Fundraiser's backer",
+      :currency    => 'usd'
+    )
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to new_charge_path
+    
   end  
 
   private

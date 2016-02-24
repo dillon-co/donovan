@@ -10,11 +10,9 @@
       </div>
       
    <% if backer_signed_in? %>
-      <%= form_for [@fundraiser, @bid] do |f| %>
+      <%= render partial: 'bids/new_bid' %>
         <h5> Your Bid</h5>
-        <%= f.number_field :money_backed %>
-        <%= f.submit 'Back This Company!', class: "button expand" %>
-      <% end %>  
+        
     <% else %>
         <%= link_to "Sign in to back this project!", new_backer_session_path, class: 'button expand' %>  
     <% end %>
