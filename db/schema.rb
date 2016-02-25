@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111015643) do
+ActiveRecord::Schema.define(version: 20160225004048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160111015643) do
   create_table "bids", force: :cascade do |t|
     t.integer  "backer_id"
     t.integer  "fundraiser_id"
-    t.integer  "money_backed"
+    t.float    "money_backed"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
