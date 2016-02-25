@@ -29,6 +29,9 @@ class Fundraiser < ActiveRecord::Base
   # validates_presence_of :video
   # mount_uploader :video, VideoUploader 
 
+  def owners_valuation
+    (100/equity_given_away) * goal
+  end  
 
   def self.get_featured
     featured_fundraisers = Fundraiser.where(featured: true).order(:created_at)

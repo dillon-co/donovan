@@ -19,15 +19,15 @@
   </div>
   <div class="medium-5 large-5 columns description-and-title">
       <p><%= @fundraiser.description.html_safe %></p>
-    <h4>Giving Away <%= @fundraiser.equity_given_away %>%</h4 >
-    <h5><%= number_to_currency(@fundraiser.goal) %></h5>
+    <h3>Giving Away <%= @fundraiser.equity_given_away %>%</h3 >
+    <h5><%= number_with_delimiter(@fundraiser.goal) %> ~ ( <%= number_with_delimiter(@fundraiser.owners_valuation) %> valuation ) </h5>
     <br>
-    <div class="panel empty-status">
+    <div class="panel empty-status" data-amount="<%= @fundraiser.goal - @fundraiser.money_raised %>">
     </div>  
-      <div class="funding-status"></div>
+      <div class="funded-status" data-amount="<%= @fundraiser.money_raised %>" data-goal="<%= @fundraiser.goal %>"></div>
      <% if @fundraiser.money_raised  %> 
-      <h3><%= number_to_currency(@fundraiser.money_raised) %> Raised </h3>
+      <h2><%= number_to_currency(@fundraiser.money_raised) %> Raised </h2>
     <% end %>
   </div>
-
 </div>
+<!-- <h2>The owner believes this company is worth</h2> -->
