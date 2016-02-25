@@ -18,7 +18,6 @@ class BidsController < ApplicationController
 
   def create
     # this in in cents, so this would be $5
-    @amount = 500
     @bid = Fundraiser.find(params[:fundraiser_id]).bids.new(money_backed: params[:money_backed], backer_id: params[:backer_id])
     @bid.backer_id = current_backer.id
     if @bid.save 
@@ -26,13 +25,14 @@ class BidsController < ApplicationController
     else
       render :error 
     end  
+    @amount = @bid.money_backed * 100
     backer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source => params[:stripeToken],
     )
     charge = Stripe::Charge.create(
       :customer    => backer.id,
-      :amount      => @amount, 
+      :amount      => @amount.to_i, 
       :description => "Fundraiser's backer",
       :currency    => 'usd'
     )
